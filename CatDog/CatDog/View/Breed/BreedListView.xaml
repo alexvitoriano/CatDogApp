@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CatDog.View.Breed.BreedListView">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <ListView x:Name="lstRepository" HasUnevenRows="True" IsRefreshing="{Binding IsBusy, Mode=OneWay}" Margin="5,0" SeparatorColor="{x:Static statics:Palette.Header}"
+                      IsPullToRefreshEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"> <!--RefreshCommand="{Binding GetRepoCommand}"-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+
+                                <!--ImgProfile-->
+                                <StackLayout  HorizontalOptions = "Fill" VerticalOptions = "Fill" Spacing="0" Grid.Row="0">
+                                    <Image 	HorizontalOptions="Center"	VerticalOptions ="Center" HeightRequest="50" WidthRequest="50">
+                                        <Image.Source>
+                                            <UriImageSource Uri="{Binding Url}" CacheValidity="1" CachingEnabled="true"/>
+                                        </Image.Source>
+                                    </Image>
+                                </StackLayout>
+
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <Label />
+                </ListView.Footer>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

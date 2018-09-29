@@ -15,6 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="View\Breed\" />
+    <EmbeddedResource Update="View\Breed\BreadDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Breed\BreedListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
