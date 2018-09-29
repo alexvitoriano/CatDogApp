@@ -4,6 +4,36 @@
              x:Class="CatDog.View.Breed.BreadDetailView">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!--Profile-->
+            <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Column="1" Grid.RowSpan="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!--ImgProfile-->
+                    <StackLayout  HorizontalOptions = "Fill" VerticalOptions = "Fill" Spacing="0" Grid.Row="0">
+                        <Image 	HorizontalOptions="Center"	VerticalOptions ="Center" HeightRequest="50" WidthRequest="50">
+                            <Image.Source>
+                                <UriImageSource Uri="{Binding owner.avatar_url}" CacheValidity="1" CachingEnabled="true"/>
+                            </Image.Source>
+                        </Image>
+                    </StackLayout>
+
+                    <!--UserName-->
+                    <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Row="1">
+                        <Label Text="{Binding owner.login}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Small" TextColor="{x:Static statics:Palette.HeaderTitle}" />
+                    </StackLayout>
+
+                    <!--NameLastName-->
+                    <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Row="2">
+                        <Label Text="{Binding full_name}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Micro" TextColor="{x:Static statics:Palette.DescTitle}" />
+                    </StackLayout>
+
+                </Grid>
+            </StackLayout>
 
             <!--<Button x:Name="load" Command="{Binding GetRepoCommand}" BackgroundColor="{x:Static statics:Palette.Header}"/>-->
         </StackLayout>

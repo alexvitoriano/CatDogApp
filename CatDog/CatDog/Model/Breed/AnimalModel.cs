@@ -13,8 +13,7 @@ namespace CatDog.Model.Breed
 
         [JsonProperty("breeds")]
         public List<BreedModel> Breeds { get; set; }
-
-
+               
 
     }
 }

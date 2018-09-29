@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using CatDog.Abstracts.ErrorHandler;
+using CatDog.Services;
 
 namespace CatDog.Abstracts
 {
@@ -32,13 +33,14 @@ namespace CatDog.Abstracts
                 using (var c = new HttpClient())
                 {
                     var client = new HttpClient();
-                    var clientPushAndroid = new HttpClient();
-                    var clientPushiOS = new HttpClient();
 
                     client.Timeout = new TimeSpan(0, 0, 30);
+                    
+                    //Adicionando a chave da API no header da chamada, para permitir a busca por 25 animais
+                    client.DefaultRequestHeaders.Add("x-api-key", HttpUtils.XAPIKEY_HEADER);
 
-                    HttpContent content = new StringContent(SerializeToJson(body), Encoding.UTF8, "application/json");
-
+                    HttpContent content = new StringContent(SerializeToJson(body), Encoding.UTF8, HttpUtils.CONTENT_TYPE);
+                    
                     HttpResponseMessage response = null;
                     switch (methodType)
                     {

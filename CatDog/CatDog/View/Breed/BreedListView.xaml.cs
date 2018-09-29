@@ -12,7 +12,7 @@ namespace CatDog.View.Breed
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BreedListView : ContentPage
 	{
-		public BreedListView ()
+		public BreedListView (bool isDog)
 		{
 			InitializeComponent ();
 		}
