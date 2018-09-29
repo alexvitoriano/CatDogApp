@@ -1,10 +1,20 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CatDog.Model.Breed
 {
-    class AnimalModel
+    public class AnimalModel
     {
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        [JsonProperty("url")]
+        public string Url { get; set; }
+
+        [JsonProperty("breeds")]
+        public List<BreedModel> Breeds { get; set; }
+
+
+
     }
 }
