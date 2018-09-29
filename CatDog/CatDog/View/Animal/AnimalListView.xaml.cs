@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CatDog.View.Breed
+namespace CatDog.View.Animal
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BreadDetailView : ContentPage
+	public partial class AnimalListView : ContentPage
 	{
-		public BreadDetailView ()
+		public AnimalListView ()
 		{
 			InitializeComponent ();
 		}

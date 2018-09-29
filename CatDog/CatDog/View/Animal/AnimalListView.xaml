@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:statics="clr-namespace:CatDog.Utils"
-             x:Class="CatDog.View.Breed.BreedListView">
+             x:Class="CatDog.View.Animal.AnimalListView">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
             <ListView x:Name="lstBreed" HasUnevenRows="True" IsRefreshing="{Binding IsBusy, Mode=OneWay}" Margin="5,0" SeparatorColor="{x:Static statics:Palette.Header}"
-                      IsPullToRefreshEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"> <!--RefreshCommand="{Binding GetRepoCommand}"-->
+                      IsPullToRefreshEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <!--RefreshCommand="{Binding GetRepoCommand}"-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -25,6 +26,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
                 <ListView.Footer>
+                    <!--This label was to avoid infinity list in iOS-->
                     <Label />
                 </ListView.Footer>
             </ListView>

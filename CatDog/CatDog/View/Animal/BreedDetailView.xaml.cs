@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CatDog.View.Breed
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BreedListView : ContentPage
+	public partial class BreedDetailView : ContentPage
 	{
-		public BreedListView (bool isDog)
+		public BreedDetailView ()
 		{
 			InitializeComponent ();
 		}
