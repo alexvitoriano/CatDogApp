@@ -5,32 +5,62 @@
              x:Class="CatDog.View.Breed.BreadDetailView">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <!--Profile-->
-            <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Column="1" Grid.RowSpan="3">
+            <!--Breed Details-->
+            <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="3*" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <!--ImgProfile-->
+                    <!--Breed Photo-->
                     <StackLayout  HorizontalOptions = "Fill" VerticalOptions = "Fill" Spacing="0" Grid.Row="0">
                         <Image 	HorizontalOptions="Center"	VerticalOptions ="Center" HeightRequest="50" WidthRequest="50">
                             <Image.Source>
-                                <UriImageSource Uri="{Binding owner.avatar_url}" CacheValidity="1" CachingEnabled="true"/>
+                                <UriImageSource Uri="{Binding Url}" CacheValidity="1" CachingEnabled="true"/>
                             </Image.Source>
                         </Image>
                     </StackLayout>
 
-                    <!--UserName-->
+                    <!--Breed Name-->
                     <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Row="1">
-                        <Label Text="{Binding owner.login}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Small" TextColor="{x:Static statics:Palette.Header}" />
+                        <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Medium" TextColor="{x:Static statics:Palette.Header}" />
                     </StackLayout>
 
-                    <!--NameLastName-->
+                    <!--Breed Life Span-->
                     <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Row="2">
-                        <Label Text="{Binding full_name}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Micro" TextColor="{x:Static statics:Palette.DescTitle}" />
+                        <Label Text="{Binding LifeSpan}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Medium" TextColor="{x:Static statics:Palette.DescTitle}" />
+                    </StackLayout>
+
+                    <!--Breed Utility-->
+                    <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Row="3">
+                        <Label Text="{Binding BreedFor}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Medium" TextColor="{x:Static statics:Palette.DescTitle}" />
+                    </StackLayout>
+
+                    <!--Breed Group-->
+                    <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Row="4">
+                        <Label Text="{Binding BreedGroup}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Medium" TextColor="{x:Static statics:Palette.Header}" />
+                    </StackLayout>
+
+                    <!--Breed Temperament-->
+                    <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Row="5">
+                        <Label Text="{Binding Temperament}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Medium" TextColor="{x:Static statics:Palette.DescTitle}" />
+                    </StackLayout>
+
+                    <!--Breed Weight-->
+                    <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Row="6">
+                        <Label Text="{Binding Weight.Metric}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Medium" TextColor="{x:Static statics:Palette.DescTitle}" />
+                    </StackLayout>
+
+                    <!--Breed Height-->
+                    <StackLayout  HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" Spacing="0" Grid.Row="7">
+                        <Label Text="{Binding Height.Metric}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="Medium" TextColor="{x:Static statics:Palette.DescTitle}" />
                     </StackLayout>
 
                 </Grid>

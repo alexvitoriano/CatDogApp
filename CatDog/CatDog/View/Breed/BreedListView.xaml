@@ -6,15 +6,13 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-            <ListView x:Name="lstRepository" HasUnevenRows="True" IsRefreshing="{Binding IsBusy, Mode=OneWay}" Margin="5,0" SeparatorColor="{x:Static statics:Palette.Header}"
+            <ListView x:Name="lstBreed" HasUnevenRows="True" IsRefreshing="{Binding IsBusy, Mode=OneWay}" Margin="5,0" SeparatorColor="{x:Static statics:Palette.Header}"
                       IsPullToRefreshEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"> <!--RefreshCommand="{Binding GetRepoCommand}"-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
-
-                                <!--ImgProfile-->
-                                <StackLayout  HorizontalOptions = "Fill" VerticalOptions = "Fill" Spacing="0" Grid.Row="0">
+                                <StackLayout  HorizontalOptions = "CenterAndExpand" VerticalOptions = "CenterAndExpand" Spacing="0">
                                     <Image 	HorizontalOptions="Center"	VerticalOptions ="Center" HeightRequest="50" WidthRequest="50">
                                         <Image.Source>
                                             <UriImageSource Uri="{Binding Url}" CacheValidity="1" CachingEnabled="true"/>
