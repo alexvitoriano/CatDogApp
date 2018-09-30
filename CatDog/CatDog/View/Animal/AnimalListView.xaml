@@ -3,23 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:statics="clr-namespace:CatDog.Utils"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Icon="ico_tabcat.png"
              x:Class="CatDog.View.Animal.AnimalListView">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{x:Static statics:Palette.CellColor}">
 
-            <ListView x:Name="lstBreed" HasUnevenRows="True" IsRefreshing="{Binding IsBusy, Mode=OneWay}" Margin="5,0" SeparatorColor="{x:Static statics:Palette.Header}"
-                      IsPullToRefreshEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <!--RefreshCommand="{Binding GetRepoCommand}"-->
+            <ListView x:Name="lstBreed" HasUnevenRows="True" IsRefreshing="{Binding IsBusy, Mode=OneWay}" SeparatorColor="{x:Static statics:Palette.Header}"
+                      IsPullToRefreshEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                RefreshCommand="{Binding GetAnimalsCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout  HorizontalOptions = "CenterAndExpand" VerticalOptions = "CenterAndExpand" Spacing="0">
-                                    <!--<Image 	HorizontalOptions="Center"	VerticalOptions ="Center" HeightRequest="50" WidthRequest="50">
-                                        <Image.Source>
-                                            <UriImageSource Uri="{Binding Url}" CacheValidity="1" CachingEnabled="true"/>
-                                        </Image.Source>
-                                    </Image>-->
+                                    
                                     <ffimageloading:CachedImage Source="{Binding Url}" CacheDuration="7" FadeAnimationForCachedImages="True" />
                                     
                                 </StackLayout>

@@ -1,6 +1,6 @@
 ﻿using CatDog.Model.Breed;
 using CatDog.ViewModel.Animal;
-
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,8 +32,8 @@ namespace CatDog.View.Animal
                 var animal = (AnimalModel)e.SelectedItem;
                 if (animal.Breeds != null && animal.Breeds.Count > 0)
                 {
-
-                    //Navigation.PushModalAsync(page);
+                    var page = new BreedDetailView(animal.Breeds.FirstOrDefault(), animal.Url);
+                    Navigation.PushModalAsync(page);
                 }
 
             }
@@ -47,15 +47,30 @@ namespace CatDog.View.Animal
 
             BindingContext = VM;
 
-            await ((AnimalViewModel)BindingContext).GetAnimalAsync(); 
+            await ((AnimalViewModel)BindingContext).GetAnimalAsync();
 
             lstBreed.ItemsSource = VM.Animals;
-
-            if (isDog)
-                this.Icon = "ico_tabdog.png";
-            else
+            
+            if (!isDog)
                 this.Icon = "ico_tabcat.png";
+            else
+            {
+                this.Icon = "ico_tabdog.png";
+                lstBreed.ItemSelected += OnSelection;
+                lstBreed.ItemAppearing += (sender, e) =>
+                {
+                    if (VM.IsBusy || VM.Animals.Count == 0)
+                        return;
 
+                    //hit bottom!
+                    if ((AnimalModel)e.Item == VM.Animals[VM.Animals.Count - 1])
+                    {
+                        VM.GetAnimalsCommand.Execute(null);
+                    }
+                };
+
+            }
+            
             base.OnAppearing();
 
         }

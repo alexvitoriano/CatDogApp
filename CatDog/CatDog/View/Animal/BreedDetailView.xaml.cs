@@ -13,7 +13,7 @@ namespace CatDog.View.Animal
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BreedDetailView : ContentPage
 	{
-		public BreedDetailView (BreedModel breed)
+		public BreedDetailView (BreedModel breed, string urlImg)
 		{
 			InitializeComponent ();
 		}

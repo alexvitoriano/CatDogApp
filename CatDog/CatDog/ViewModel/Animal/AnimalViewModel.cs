@@ -17,7 +17,12 @@ namespace CatDog.ViewModel.Animal
             get { return isDog; }
             set { SetProperty(ref isDog, value); }
         }
-               
+            
+        public AnimalViewModel()
+        {
+            GetAnimalsCommand = new Command(async () => await GetAnimalAsync(), () => !IsBusy);
+        }
+
         //Models
         public ObservableCollection<AnimalModel> Animals { get; set; }
 
@@ -37,10 +42,19 @@ namespace CatDog.ViewModel.Animal
                     IsBusy = true;
 
                     Animals = new ObservableCollection<AnimalModel>(await animalService.GetAnimalsServiceAsync(isDog));
-                    if (Animals==null)
+
+                    if (Animals == null)
                     {
                         DisplayAlert($"CatDogApp", $"Impossible to recover this animal", $"OK");
+                        return;
                     }
+
+                    //foreach (var animal in _Animals)
+                    //{
+                    //    Animals.Add(animal);
+                    //}
+                    
+                    
                 }
                 catch (Exception ex)
                 {

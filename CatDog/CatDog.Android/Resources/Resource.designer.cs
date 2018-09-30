@@ -4673,6 +4673,9 @@ namespace CatDog.Droid
 			// aapt resource value: 0x7f0b0190
 			public const int MainTheme_Base = 2131427728;
 			
+			// aapt resource value: 0x7f0b0192
+			public const int MyTheme_Splash = 2131427730;
+			
 			// aapt resource value: 0x7f0b002d
 			public const int Platform_AppCompat = 2131427373;
 			
