@@ -32,8 +32,11 @@ namespace CatDog.View.Animal
                 var animal = (AnimalModel)e.SelectedItem;
                 if (animal.Breeds != null && animal.Breeds.Count > 0)
                 {
+
                     var page = new BreedDetailView(animal.Breeds.FirstOrDefault(), animal.Url);
-                    Navigation.PushModalAsync(page);
+
+                    Navigation.PushAsync(page);
+
                 }
 
             }
@@ -50,7 +53,7 @@ namespace CatDog.View.Animal
             await ((AnimalViewModel)BindingContext).GetAnimalAsync();
 
             lstBreed.ItemsSource = VM.Animals;
-            
+
             if (!isDog)
                 this.Icon = "ico_tabcat.png";
             else
@@ -70,7 +73,7 @@ namespace CatDog.View.Animal
                 };
 
             }
-            
+
             base.OnAppearing();
 
         }
