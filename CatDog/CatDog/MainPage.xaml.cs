@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CatDog.View.Animal;
 using Xamarin.Forms;
 
 namespace CatDog
@@ -12,6 +8,11 @@ namespace CatDog
         public MainPage()
         {
             InitializeComponent();
+
+            this.Title = "CatDogApp";
+
+            Children.Add(new AnimalListView(true));
+            Children.Add(new AnimalListView(false));
         }
     }
 }

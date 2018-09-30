@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace CatDog.ViewModel
 {
@@ -122,6 +124,15 @@ namespace CatDog.ViewModel
                 return;
 
             changed(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected void DisplayAlert(string title, string message, string cancel)
+        {
+            Application.Current.MainPage.DisplayAlert(title, message, cancel);
+        }
+        protected Task<bool> DisplayAlert(string title, string message, string cancel, string accept)
+        {
+            return Application.Current.MainPage.DisplayAlert(title, message, accept, cancel);
         }
     }
 }

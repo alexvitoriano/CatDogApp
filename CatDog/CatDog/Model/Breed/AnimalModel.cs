@@ -6,7 +6,7 @@ namespace CatDog.Model.Breed
     public class AnimalModel
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [JsonProperty("url")]
         public string Url { get; set; }

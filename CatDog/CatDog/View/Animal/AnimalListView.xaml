@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:statics="clr-namespace:CatDog.Utils"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="CatDog.View.Animal.AnimalListView">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -14,11 +15,13 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout  HorizontalOptions = "CenterAndExpand" VerticalOptions = "CenterAndExpand" Spacing="0">
-                                    <Image 	HorizontalOptions="Center"	VerticalOptions ="Center" HeightRequest="50" WidthRequest="50">
+                                    <!--<Image 	HorizontalOptions="Center"	VerticalOptions ="Center" HeightRequest="50" WidthRequest="50">
                                         <Image.Source>
                                             <UriImageSource Uri="{Binding Url}" CacheValidity="1" CachingEnabled="true"/>
                                         </Image.Source>
-                                    </Image>
+                                    </Image>-->
+                                    <ffimageloading:CachedImage Source="{Binding Url}" CacheDuration="7" FadeAnimationForCachedImages="True" />
+                                    
                                 </StackLayout>
 
                             </ViewCell.View>
